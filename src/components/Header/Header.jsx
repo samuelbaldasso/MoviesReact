@@ -1,17 +1,34 @@
 import "./style.css"
 import {useNavigate} from "react-router-dom";
 import {useUser} from "../../UserContext";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Header(){
-    const { user } = useUser();
+    const { user, setUser } = useUser();
     const history = useNavigate();
-    const id = localStorage.getItem("userId");
+    const [avatar, setAvatar] = useState();
+
     function handleLogout() {
         localStorage.removeItem('token');
         localStorage.removeItem("userId");
         history("/");
-        console.log(user);
     }
+
+    useEffect(() => {
+      async function getAvatar(){
+        try{
+          const res = await axios.get('http://localhost:3001/lastUpload');
+          setAvatar(res.data.imageUrl);
+          setUser(prevState => ({...prevState, avatar: avatar}));
+        }
+        catch (e){
+          alert("Erro 500 - Servidor. Por favor, tente novamente.")
+        }
+      }
+
+      getAvatar();
+    }, [setUser, avatar])
 
     return (
         <div className={"page-header"}>
@@ -23,12 +40,12 @@ export default function Header(){
 
             <div className={"links"}>
                 <div>
-                    <a href={`/settings/${id}`}>
+                    <a href={`/settings/${user.id}`}>
                         <h3>{user.name || "Sem nome"}</h3>
                     </a>
                     <a href={"/"} onClick={handleLogout}>Sair</a>
                 </div>
-                <img src={user.avatar || "/img.png"} alt={""}/>
+                <img src={avatar ? avatar : "/img.png"} alt={""}/>
             </div>
         </div>
     );

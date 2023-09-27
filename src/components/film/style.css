@@ -1,0 +1,11 @@
+.page-item{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  margin: 0 12rem;
+  color: #fff;
+  gap: 0.2rem;
+  background: rebeccapurple;
+  border-radius: 0.8rem;
+}
+

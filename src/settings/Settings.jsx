@@ -12,6 +12,7 @@ export default function Settings(){
   const [password, setPassword] = useState("");
   const [actualPassword, setActualPassword] = useState("");
   const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
 
     function navigateTo(){
         history("/film");
@@ -43,12 +44,22 @@ export default function Settings(){
     }
 
     useEffect(() => {
+      async function getAvatar(){
+        try{
+          const res = await axios.get('http://localhost:3001/lastUpload');
+          setAvatar(res.data.imageUrl);
+          setUser(prevState => ({...prevState, avatar: avatar}));
+        }
+        catch (e){
+          alert("Erro 500 - Servidor. Por favor, tente novamente.")
+        }
+      }
+
         async function getUser() {
             try {
                 const res = await axios.get(`http://localhost:3001/user/${id}`);
                 setUser(res.data);
 
-                // initialize form with existing user data
                 setName(res.data.name);
                 setEmail(res.data.email);
             } catch (e) {
@@ -56,7 +67,8 @@ export default function Settings(){
             }
         }
         getUser();
-    }, [id, setUser]);
+        getAvatar();
+    }, [id, setUser, avatar]);
 
    function handleImageChange(e) {
         const file = e.target.files[0];
@@ -73,7 +85,7 @@ export default function Settings(){
             })
                 .then(response => {
                     // Handle successful upload
-                    console.log('File uploaded successfully:', response.data);
+                    console.log('File uploaded successfully:', response.data.imageUrl);
                     if(response.data && response.data.imageUrl) {
                         setUser(prevState => ({...prevState, avatar: response.data.imageUrl}));
                     }
@@ -93,7 +105,7 @@ export default function Settings(){
             </div>
 
             <div className={"profile"}>
-                <img src={user.avatar || "/img.png"} alt={""}/>
+                <img src={user.avatar ? user.avatar : "/img.png"} alt={""}/>
                 <div className={"camera"}>
                     <input
                         type="file"
