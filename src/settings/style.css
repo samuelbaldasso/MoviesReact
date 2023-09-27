@@ -1,0 +1,123 @@
+.back h3{
+    color: #FF859B;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.back{
+    display: flex;
+    gap: 0.8rem;
+    padding: 6.4rem 16.8rem;
+    align-items: center;
+    text-align: center;
+    background: rebeccapurple;
+
+}
+
+.back img{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.page-settings{
+    background: #000;
+    height: 100vh;
+}
+
+.profile img{
+    width: 18.6rem;
+    height: 18.6rem;
+    border-radius: 9999.99rem;
+    position: absolute;
+    inset: 9rem 62rem 0 62rem;
+}
+
+.camera{
+    border-radius: 9999.99rem;
+    padding: 2.4rem;
+    background: #FF859B;
+    width: 2rem;
+    position: relative;
+    left: 75rem;
+    top: 4rem;
+    height: 2rem;
+}
+
+.camera img{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 2.4rem;
+    top: 2.4rem;
+    border-radius: 0;
+}
+
+.email, .senha,.name{
+    position: relative;
+}
+
+.email input, .senha input, .name input{
+    padding: 0 3rem;
+}
+
+.email{
+    margin-bottom: 2rem;
+}
+
+.email img, .senha img, .name img{
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 1.8rem;
+}
+
+form input, form button{
+    width: 30rem;
+    height: 5.6rem;
+    flex-shrink: 0;
+    border-radius: 0.8rem;
+    border: none;
+    margin: 0.5rem 0;
+}
+
+form button{
+    width: 36rem;
+    margin-left: 1.2rem;
+    background: pink;
+    color: #000;
+    margin-top: 3.2rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+.name img, .email img, .senha img {
+    margin-left: 0.8rem;
+}
+
+input[placeholder]{
+    margin-left: 1.2rem;
+    color: white;
+}
+
+.submit{
+    width: 36rem;
+    margin-left: 1.2rem;
+    background: transparent;
+    color: pink;
+    border: none;
+    margin-top: 4.2rem;
+}
+
+.hidden-input {
+    display: none;
+}

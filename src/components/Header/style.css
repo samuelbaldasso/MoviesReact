@@ -1,0 +1,42 @@
+.page-header img{
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 9999.99rem;
+}
+
+.page-header, .text, .links{
+    display: flex;
+    color: #ffffff;
+}
+
+.page-header{
+    justify-content: space-evenly;
+    padding: 2.4rem 12.3rem;
+    align-items: center;
+    background: #1C1B1E;
+    gap: 6.4rem;
+}
+
+.text h2{
+    color: pink;
+}
+
+input{
+    display: flex;
+    padding: 1.9rem 2.4rem;
+    align-items: flex-start;
+    flex: 1 0 0;
+    border-radius: 1rem;
+    background: #262529;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.links{
+    gap: 2rem;
+    justify-content: flex-end;
+}

@@ -1,0 +1,111 @@
+.page {
+    display: flex;
+    background-color: #1C1B1E;
+    justify-content: space-between;
+}
+
+.img img{
+    width: 80rem;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.rocket{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: pink;
+}
+
+.rocket h1{
+    font-size: 4.8rem;
+    margin: 0;
+    color: pink;
+}
+
+.flex-start{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem 15rem;
+    color: #fff;
+}
+
+.flex-start p{
+    font-size: 1.4rem;
+}
+
+.h2 h2{
+    font-size: 2.8rem;
+    color: #fff;
+    text-align: left;
+}
+
+.h2 {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  width: 32rem;
+  margin-bottom: 1rem;
+}
+
+.email, .senha,.name{
+    position: relative;
+}
+
+.email input, .senha input, .name input{
+    padding: 0 3rem;
+}
+
+.email img, .senha img, .name img{
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 1.8rem;
+}
+
+form input, form button{
+    width: 30rem;
+    height: 5.6rem;
+    flex-shrink: 0;
+    border-radius: 0.8rem;
+    border: none;
+    margin: 0.5rem 0;
+}
+
+form button{
+    width: 36rem;
+    margin-left: 1.2rem;
+    background: pink;
+    color: #fff;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0 0;
+}
+
+.name img, .email img, .senha img {
+    margin-left: 0.8rem;
+}
+
+input[placeholder]{
+    margin-left: 1.2rem;
+}
+
+.submit{
+    width: 36rem;
+    margin-left: 1.2rem;
+    background: transparent;
+    color: pink;
+    border: none;
+    margin-top: 4.2rem;
+}
+
+
