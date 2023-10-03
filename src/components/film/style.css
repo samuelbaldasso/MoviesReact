@@ -1,11 +1,43 @@
-.page-item{
+.page-item {
   display: flex;
   flex-direction: column;
   padding: 3rem;
-  margin: 0 12rem;
+  margin: 0 12rem 2rem 12rem;
+  font-family: "Roboto", sans-serif;
   color: #fff;
   gap: 0.2rem;
   background: rebeccapurple;
   border-radius: 0.8rem;
 }
 
+.item h2 {
+  color: #f4ede8;
+  font-family: Roboto Slab;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.item p {
+  margin-top: 1rem;
+  color: #999591;
+}
+
+.tag-container{
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.tags{
+  background: #312E38;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.tags span{
+  color: #fff;
+}

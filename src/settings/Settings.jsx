@@ -1,12 +1,12 @@
 import "./style.css";
-import {useNavigate, useParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useUser} from "../UserContext";
+import { useUser } from "../UserContext";
 
-export default function Settings(){
+export default function Settings() {
   const history = useNavigate();
-  const {id} = useParams();
+  const { id } = useParams();
   const { user, setUser } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,159 +14,163 @@ export default function Settings(){
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
-    function navigateTo(){
-        history("/film");
-    }
+  function navigateTo() {
+    history("/film");
+  }
 
-    async function putUser(e){
-        e.preventDefault();
-        try {
-            const payload = {
-                name,
-                email,
-                actualPassword,  // sending both passwords to server
-                password
-            };
+  async function putUser(e) {
+    e.preventDefault();
+    try {
+      const payload = {
+        name,
+        email,
+        actualPassword, // sending both passwords to server
+        password,
+      };
 
-            const response = await axios.put(`http://localhost:3001/user/${id}`, payload);
+      const response = await axios.put(
+        `http://localhost:3001/user/${id}`,
+        payload
+      );
 
-            if(response.status === 200) {
-                alert("Usuário atualizado com sucesso!");
-                navigateTo();
-            } else {
-                alert("Erro ao atualizar usuário.");
-            }
-        }
-        catch (e) {
-            console.error(e);
-            alert("Erro ao atualizar usuário.");
-        }
-    }
-
-    useEffect(() => {
-      async function getAvatar(){
-        try{
-          const res = await axios.get('http://localhost:3001/lastUpload');
-          setAvatar(res.data.imageUrl);
-          setUser(prevState => ({...prevState, avatar: avatar}));
-        }
-        catch (e){
-          alert("Erro 500 - Servidor. Por favor, tente novamente.")
-        }
+      if (response.status === 200) {
+        alert("Usuário atualizado com sucesso!");
+        navigateTo();
+      } else {
+        alert("Erro ao atualizar usuário.");
       }
+    } catch (e) {
+      console.error(e);
+      alert("Erro ao atualizar usuário.");
+    }
+  }
 
-        async function getUser() {
-            try {
-                const res = await axios.get(`http://localhost:3001/user/${id}`);
-                setUser(res.data);
-
-                setName(res.data.name);
-                setEmail(res.data.email);
-            } catch (e) {
-                alert("Erro ao obter usuário.");
-            }
-        }
-        getUser();
-        getAvatar();
-    }, [id, setUser, avatar]);
-
-   function handleImageChange(e) {
-        const file = e.target.files[0];
-
-        if (file) {
-            const formData = new FormData();
-            formData.append('image', file); // 'image' is the field name; adjust it according to your server's expected field name
-
-            // Assuming your server is set up to accept POST requests at the "/upload" endpoint
-            axios.post('http://localhost:3001/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
-                .then(response => {
-                    // Handle successful upload
-                    console.log('File uploaded successfully:', response.data.imageUrl);
-                    if(response.data && response.data.imageUrl) {
-                        setUser(prevState => ({...prevState, avatar: response.data.imageUrl}));
-                    }
-                })
-                .catch(error => {
-                    // Handle upload error
-                    console.error('File upload error:', error);
-                });
-        }
+  useEffect(() => {
+    async function getAvatar() {
+      try {
+        const res = await axios.get("http://localhost:3001/lastUpload");
+        setAvatar(res.data.imageUrl);
+        setUser((prevState) => ({ ...prevState, avatar: avatar }));
+      } catch (e) {
+        alert("Erro 500 - Servidor. Por favor, tente novamente.");
+      }
     }
 
-    return (
-        <div className={"page-settings"}>
-            <div className={"back"}>
-                <a href={"/film"} onClick={navigateTo}><img src={"/ArrowLeft.svg"} alt={""}/></a>
-                <h3>Voltar</h3>
-            </div>
+    async function getUser() {
+      try {
+        const res = await axios.get(`http://localhost:3001/user/${id}`);
+        setUser(res.data);
 
-            <div className={"profile"}>
-                <img src={user.avatar ? user.avatar : "/img.png"} alt={""}/>
-                <div className={"camera"}>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        className="hidden-input"
-                        id="fileInput"
-                    />
-                    <label htmlFor="fileInput">
-                        <img src={"/Câmera.svg"} alt="Upload Avatar" />
-                    </label>
-                </div>
+        setName(res.data.name);
+        setEmail(res.data.email);
+      } catch (e) {
+        alert("Erro ao obter usuário.");
+      }
+    }
+    getUser();
+    getAvatar();
+  }, [id, setUser, avatar]);
 
-                <form onSubmit={putUser}>
-                            <div className={"name"}>
-                                <img src={"/Nome.svg"} alt={""}/>
-                                <input
-                                    value={name}
-                                    onChange={e => setName(e.target.value)}
-                                    type="text"
-                                    placeholder="Nome"
-                                    required
-                                />
-                            </div>
+  function handleImageChange(e) {
+    const file = e.target.files[0];
 
-                            <div className={"email"}>
-                                <img src={"/E-mail.svg"} alt={""}/>
-                                <input
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
-                                    type="email"
-                                    placeholder="E-mail"
-                                    required
-                                />
-                            </div>
+    if (file) {
+      const formData = new FormData();
+      formData.append("image", file); // 'image' is the field name; adjust it according to your server's expected field name
 
-                            <div className={"senha"}>
-                                <img src={"/Senha.svg"} alt={""}/>
-                                <input
-                                    value={actualPassword}
-                                    type="password"
-                                    onChange={e => setActualPassword(e.target.value)}
-                                    placeholder="Senha atual"
-                                    required
-                                />
-                            </div>
+      // Assuming your server is set up to accept POST requests at the "/upload" endpoint
+      axios
+        .post("http://localhost:3001/upload", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          // Handle successful upload
+          console.log("File uploaded successfully:", response.data.imageUrl);
+          if (response.data && response.data.imageUrl) {
+            setUser((prevState) => ({
+              ...prevState,
+              avatar: response.data.imageUrl,
+            }));
+          }
+        })
+        .catch((error) => {
+          // Handle upload error
+          console.error("File upload error:", error);
+        });
+    }
+  }
 
-                            <div className={"senha"}>
-                                <img src={"/Senha.svg"} alt={""}/>
-                                <input
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
-                                    type="password"
-                                    placeholder="Nova senha"
-                                    required
-                                />
-                            </div>
+  return (
+    <div className={"page-settings"}>
+      <div className={"back"}>
+        <a href={"/film"} onClick={navigateTo}>
+          <img src={"/ArrowLeft.svg"} alt={""} />
+        </a>
+        <h3>Voltar</h3>
+      </div>
 
-                            <button type="submit">Salvar</button>
-                        </form>
-            </div>
+      <div className={"profile"}>
+        <img src={user.avatar ? user.avatar : "/img.png"} alt={""} />
+        <div className={"camera"}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="hidden-input"
+            id="fileInput"
+          />
+          <label htmlFor="fileInput">
+            <img src={"/Câmera.svg"} alt="Upload Avatar" />
+          </label>
         </div>
-    );
+
+        <form onSubmit={putUser}>
+          <div className={"name"}>
+            <img src={"/Nome.svg"} alt={""} />
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              placeholder="Nome"
+            />
+          </div>
+
+          <div className={"email"}>
+            <img src={"/E-mail.svg"} alt={""} />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="E-mail"
+              required
+            />
+          </div>
+
+          <div className={"senha"}>
+            <img src={"/Senha.svg"} alt={""} />
+            <input
+              value={actualPassword}
+              type="password"
+              onChange={(e) => setActualPassword(e.target.value)}
+              placeholder="Senha atual"
+            />
+          </div>
+
+          <div className={"senha"}>
+            <img src={"/Senha.svg"} alt={""} />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Nova senha"
+            />
+          </div>
+
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </div>
+  );
 }

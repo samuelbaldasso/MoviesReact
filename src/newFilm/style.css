@@ -1,0 +1,154 @@
+.texts-new h1 {
+  color: #fff;
+  font-family: Roboto Slab;
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.page-new {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  padding: 6rem 12rem;
+  background: #1c1b1e;
+}
+
+.data-title {
+  display: flex;
+  gap: 4rem;
+  margin: 0;
+  width: 100%;
+}
+
+.data-title input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0rem;
+}
+
+.data-title input[placeholder],
+.description-field[placeholder], 
+.newMarkup input[placeholder], 
+{
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
+.description-field {
+  height: 27.4rem;
+  flex-shrink: 0;
+  border-radius: 0.8rem;
+  background: #262529;
+  margin: 0;
+  width: 100%;
+  border: none;
+}
+
+.textarea {
+  width: 100%;
+}
+
+.description-field[placeholder] {
+  padding: 0.8rem 0 0.2rem 0.8rem;
+  color: #fff;
+}
+
+.form {
+  margin-top: 2rem;
+  gap: 4rem;
+}
+
+.markups {
+  font-size: 1.6rem;
+  font-family: "Roboto Slab", sans-serif;
+  color: #999591;
+}
+
+.markup-group {
+  display: flex;
+  background: #0d0c0f;
+  gap: 1.6rem;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+}
+
+.markup {
+  background: transparent;
+  display: flex;
+  gap: 1.6rem;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  border: none;
+  font-size: 2.4rem;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  background: #262529;
+  color: #fff;
+}
+
+.newMarkup {
+  background: transparent;
+  display: flex;
+  gap: 1.6rem;
+  padding: 1.6rem;
+  border-radius: 1rem;
+  border: 2px dashed #948f99;
+  font-size: 2.4rem;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.newMarkup input {
+  padding: 0;
+  margin: 0;
+  border-radius: 0rem;
+  background: transparent;
+}
+
+.newMarkup input[placeholder] {
+  color: pink;
+}
+
+.add,
+.close {
+  color: pink;
+  font-size: 1.4rem;
+}
+
+.buttons{
+  display: flex;
+  height: 5.6rem;
+  flex-shrink: 0;
+  margin: 4rem 0 0;
+  gap: 4rem;
+  width: 100%;
+}
+
+.buttons button{
+  border-radius: 0.8rem;
+  border: none;
+  background: pink;
+  color: #fff;
+  width: 100%;
+}
+
+.buttons button{
+  border-radius: 0.8rem;
+  border: none;
+  background: pink;
+  color: #000;
+  width: 100%;
+}
+
+.buttons button:first-child{
+  color: pink;
+  background: #000;
+}
+
+.description h3{
+  font-family: "Roboto Slab", sans-serif;
+}

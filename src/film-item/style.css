@@ -1,0 +1,66 @@
+.page-description {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 6rem 12rem;
+  background: #1c1b1e;
+}
+
+.description {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.description h3 {
+  color: #ff859b;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.data h1,
+.data div span {
+  font-size: 3.6rem;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 2rem;
+}
+
+.image img {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+  border-radius: 9999.99rem;
+}
+
+.image, .hour{
+  display: flex;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.hour{
+  margin-left: 1rem;
+}
+
+.tag-container{
+  padding: 4rem 0;
+}
+
+.text-desc {
+  color: #f4ede8;
+  text-align: justify;
+  font-family: Roboto Slab;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
