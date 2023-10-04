@@ -14,6 +14,7 @@ export default function FilmDescription() {
   const { id } = useParams();
 
   function navigateTo() {
+    setFilm([]);
     history("/film");
     console.log(user);
   }

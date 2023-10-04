@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+
 function AuthForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +36,10 @@ function AuthForm() {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
         alert(isLogin ? "Sucesso no login!" : "Sucesso no cadastro!");
-        history("/film");
+
+        if(isLogin){
+          history("/film");
+        }
       } else {
         alert("Usuário criado com sucesso!");
       }
