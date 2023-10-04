@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router";
-import Header from "../components/Header/Header";
-import Line from "../components/line/Line";
+import Header from "../../components/header/Header";
+import Line from "../../components/line/Line";
 import "./style.css";
 import { useState } from "react";
 import axios from "axios";
-import { useUser } from "../UserContext";
+import { useUser } from "../../UserContext";
 import { useEffect } from "react";
 
 export default function NewFilm() {
@@ -114,13 +114,12 @@ export default function NewFilm() {
             <textarea
               className="description-field"
               value={description}
+              draggable={false}
               onChange={(e) => setDescription(e.target.value)}
-              type="text"
               placeholder="Observações"
               required
             />
           </div>
-        </form>
 
         <div className="markups">
           <h3>Marcadores</h3>
@@ -129,7 +128,7 @@ export default function NewFilm() {
         <div className="markup-group">
           {tag.map((t) => (
             <div className="markup" key={t.id}>
-              <span>{t.name}</span>
+              <span key={t.id}>{t.name}</span>
               <p className="close" onClick={() => deleteTag(t.id)}>
                 X
               </p>
@@ -151,8 +150,9 @@ export default function NewFilm() {
 
         <div className="buttons">
           {/* <button onClick={navigateTo}>Excluir filme</button> */}
-          <button onClick={handleSubmit}>Salvar alterações</button>
+          <button type={"submit"}>Salvar alterações</button>
         </div>
+        </form>
       </div>
     </>
   );

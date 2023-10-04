@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AuthForm from './auth/AuthForm';
-import Film from './films/Film';
-import Settings from "./settings/Settings";
+import AuthForm from './pages/auth/AuthForm';
+import Film from './pages/films/Film';
+import Settings from "./pages/settings/Settings";
 import {UserProvider} from "./UserContext";
-import FilmDescription from './film-item/FilmDescription';
-import NewFilm from "./newFilm/NewFilm";
+import FilmDescription from './pages/film-item/FilmDescription';
+import NewFilm from "./pages/newFilm/NewFilm";
 
 function AppRoutes() {
     return (

@@ -1,11 +1,11 @@
-import Header from "../components/Header/Header";
+import Header from "../../components/header/Header";
 import axios from "axios";
 import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
-import { useUser } from "../UserContext";
+import { useUser } from "../../UserContext";
 import "./style.css";
-import FilmItem from "../components/film/FilmItem";
-import Line from "../components/line/Line";
+import FilmItem from "../../components/film/FilmItem";
+import Line from "../../components/line/Line";
 import { useNavigate } from "react-router";
 
 function Film() {

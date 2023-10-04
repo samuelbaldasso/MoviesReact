@@ -2,7 +2,7 @@ import "./style.css";
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useUser } from "../UserContext";
+import { useUser } from "../../UserContext";
 
 export default function Settings() {
   const history = useNavigate();

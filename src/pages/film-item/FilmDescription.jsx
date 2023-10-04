@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
-import Header from "../components/Header/Header";
-import { useUser } from "../UserContext";
-import Line from "../components/line/Line";
+import Header from "../../components/header/Header";
+import { useUser } from "../../UserContext";
+import Line from "../../components/line/Line";
 import { useEffect } from "react";
 import axios from "axios";
-import dateFormat from "../utils/Date";
-import StarRating from "../components/star/StarRating";
+import dateFormat from "../../utils/Date";
+import StarRating from "../../components/star/StarRating";
 
 export default function FilmDescription() {
   const history = useNavigate();
