@@ -75,7 +75,7 @@ function Film() {
           </button>
         </div>
 
-        {film.map((e) => (
+        {Array.isArray(film) && film.map((e) => (
           <div className="films" key={e.id}>
             <FilmItem film={e} tags={tag} />
           </div>
