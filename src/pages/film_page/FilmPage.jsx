@@ -34,7 +34,7 @@ export default function FilmPage() {
   useEffect(() => {
     async function handleFilms(e) {
       try {
-        const response = await axios.get("http://localhost:3001/film");
+        const response = await axios.get("http://localhost:3001/film/film");
         const filteredData = response.data.filter(
           (film) => film.users_id === userId
         );
@@ -58,23 +58,23 @@ export default function FilmPage() {
   useEffect(() => {
     async function getUser() {
       try {
-        const res = await axios.get(`http://localhost:3001/user/${userId}`);
+        const res = await axios.get(`http://localhost:3001/user/user/${userId}`);
         setUser(res.data);
       } catch (e) {
         alert("Erro ao obter usuário.");
       }
     }
 
-    async function handleTags() {
-      try {
-        const response = await axios.get("http://localhost:3001/tag");
-        setTag(response.data);
-      } catch (error) {
-        alert("Erro ao adicionar tag.");
-      }
-    }
+    // async function handleTags() {
+    //   try {
+    //     const response = await axios.get("http://localhost:3001/tag/tag");
+    //     setTag(response.data);
+    //   } catch (error) {
+    //     alert("Erro ao adicionar tag.");
+    //   }
+    // }
 
-    handleTags();
+    // handleTags();
     getUser();
   }, [user, setUser, userId, setFilm, setTag, setFilteredFilms]);
 

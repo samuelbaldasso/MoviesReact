@@ -10,7 +10,7 @@ import StarRating from "../../components/star/StarRating";
 
 export default function FilmDescription() {
   const history = useNavigate();
-  const { user, film, setFilm, tag } = useUser();
+  const { user, film, setFilm } = useUser();
   const { id } = useParams();
 
   function navigateTo() {
@@ -22,7 +22,7 @@ export default function FilmDescription() {
   useEffect(() => {
     async function handleFilm() {
       try {
-        const response = await axios.get(`http://localhost:3001/film/${id}`);
+        const response = await axios.get(`http://localhost:3001/film/film/${id}`);
         setFilm(response.data);
       } catch (error) {
         alert("Erro ao adicionar filme.");
@@ -57,13 +57,13 @@ export default function FilmDescription() {
           </div>
         </div>
 
-        <div className="tag-container">
+        {/* <div className="tag-container">
           {tag.map((tag) => (
             <div className="tags" key={tag.id}>
               <span>{tag.name}</span>
             </div>
           ))}
-        </div>
+        </div> */}
 
         <div className="text-desc" key={film.id}>
           <p>{film.description}</p>

@@ -1,19 +1,24 @@
 body {
   margin: 0;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  background-color: #1c1b1e;
 }
 
-:root{
+:root {
   font-size: 62.5%;
 }
 
-body, input[placeholder], button, textarea{
-  font-family: 'Roboto Slab', sans-serif;
+body,
+input[placeholder],
+button,
+textarea {
+  font-family: "Roboto Slab", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

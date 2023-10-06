@@ -1,131 +1,138 @@
-.back h3{
-    color: #FF859B;
-    font-size: 1.4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.back h3 {
+  color: #ff859b;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.back{
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    margin-top: 0;
-    padding: 0 14.6rem;
-    height: 20rem;
-    position: relative;
-    text-align: center;
-    background: rebeccapurple;
+.back {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 0;
+  padding: 0 14.6rem;
+  height: 20rem;
+  position: relative;
+  text-align: center;
+  background: rebeccapurple;
 }
 
-.back img{
-    width: 1.6rem;
-    height: 1.6rem;
+.back img {
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
-.page-settings{
-    background: #000;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.page-settings {
+  background: #000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.profile img{
-    width: 18.6rem;
-    height: 18.6rem;
-    border-radius: 9999.99rem;
-    position: absolute;
-    top: 24%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.profile img {
+  width: 18.6rem;
+  height: 18.6rem;
+  border-radius: 9999.99rem;
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.camera{
-    border-radius: 9999.99rem;
-    padding: 2.4rem;
-    background: #FF859B;
-    width: 2rem;
-    position: relative;
-    top: 10%;
-    left: 54%;
-    transform: translate(-50%, -50%);
-    height: 2rem;
+.camera {
+  border-radius: 9999.99rem;
+  padding: 2.4rem;
+  background: #ff859b;
+  width: 2rem;
+  position: relative;
+  top: 10%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  height: 2rem;
 }
 
-.profile{
+.profile {
   margin-top: 2rem;
 }
 
-.camera img{
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 0;
+.camera img {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0;
 }
 
-.email, .senha,.name{
-    position: relative;
+.email,
+.senha,
+.name {
+  position: relative;
 }
 
-.email input, .senha input, .name input{
-    padding: 0 3rem 0;
+.email input,
+.senha input,
+.name input {
+  padding: 0 3rem 0;
 }
 
-.email{
-    margin-bottom: 2rem;
+.email {
+  margin-bottom: 2rem;
 }
 
-.email img, .senha img, .name img{
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 1.8rem;
+.email img,
+.senha img,
+.name img {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 1.8rem;
 }
 
-form input, form button{
-    width: 30rem;
-    height: 5.6rem;
-    flex-shrink: 0;
-    border-radius: 0.8rem;
-    border: none;
-    margin: 0.5rem 0;
+form input,
+form button {
+  width: 30rem;
+  height: 5.6rem;
+  flex-shrink: 0;
+  border-radius: 0.8rem;
+  border: none;
+  margin: 0.5rem 0;
 }
 
-form button{
-    width: 36rem;
-    margin-left: 1.2rem;
-    background: pink;
-    color: #000;
-    margin-top: 3.2rem;
+form button {
+  width: 36rem;
+  margin-left: 1.2rem;
+  background: pink;
+  color: #000;
+  margin-top: 3.2rem;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5rem;
+.form-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
-input[placeholder]{
-    /* margin-left: 1.2rem; */
-    color: white;
+.form-settings input[placeholder] {
+  margin-left: 1.2rem;
+  color: white;
 }
 
-.submit{
-    width: 36rem;
-    /* margin-left: 1.2rem; */
-    background: transparent;
-    color: pink;
-    border: none;
-    margin-top: 4.2rem;
+.submit {
+  width: 36rem;
+  /* margin-left: 1.2rem; */
+  background: transparent;
+  color: pink;
+  border: none;
+  margin-top: 4.2rem;
 }
 
 .hidden-input {
-    display: none;
+  display: none;
 }

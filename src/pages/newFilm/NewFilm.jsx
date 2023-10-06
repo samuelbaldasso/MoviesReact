@@ -5,7 +5,6 @@ import "./style.css";
 import { useState } from "react";
 import axios from "axios";
 import { useUser } from "../../UserContext";
-import { useEffect } from "react";
 
 export default function NewFilm() {
   const [title, setTitle] = useState("");
@@ -13,30 +12,30 @@ export default function NewFilm() {
   // const [tagName, setTagName] = useState("");
   const [description, setDescription] = useState("");
 
-  const { setFilm, tag, setTag, user } = useUser();
+  const { setFilm, user } = useUser();
   const history = useNavigate();
 
   function navigateTo() {
     history("/film");
   }
 
-  useEffect(() => {
-    async function getAllTags() {
-      try {
-        const res = await axios.get(`http://localhost:3001/tag`);
-        setTag(res.data);
-      } catch (e) {
-        alert("Erro ao buscar tags.");
-      }
-    }
+  // useEffect(() => {
+  //   async function getAllTags() {
+  //     try {
+  //       const res = await axios.get(`http://localhost:3001/tag/tag`);
+  //       setTag(res.data);
+  //     } catch (e) {
+  //       alert("Erro ao buscar tags.");
+  //     }
+  //   }
 
-    getAllTags();
-  }, [setTag]);
+  //   getAllTags();
+  // }, [setTag]);
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {  
-      const res = await axios.post(`http://localhost:3001/film`, {
+      const res = await axios.post(`http://localhost:3001/film/film`, {
         title,
         nota,
         description,
@@ -49,29 +48,14 @@ export default function NewFilm() {
     }
   }
 
-  // async function handleTags() {
+  // async function deleteTag(tagId) {
   //   try {
-  //     const response = await axios.post("http://localhost:3001/tag", {
-  //       tagName,
-  //       film_id: film.id,
-  //       users_id: user.id
-  //     });
-
-  //     setTag(prev => [...prev, response.data]);
-  //     setTagName(''); 
+  //     await axios.delete(`http://localhost:3001/tag/tag/${tagId}`);
+  //     setTag(prev => prev.filter(t => t.id !== tagId));
   //   } catch (e) {
-  //     alert("Erro ao adicionar tag.");
+  //     alert("Erro ao deletar tag.");
   //   }
   // }
-
-  async function deleteTag(tagId) {
-    try {
-      await axios.delete(`http://localhost:3001/tag/${tagId}`);
-      setTag(prev => prev.filter(t => t.id !== tagId));
-    } catch (e) {
-      alert("Erro ao deletar tag.");
-    }
-  }
 
   return (
     <>
@@ -90,6 +74,7 @@ export default function NewFilm() {
           <h1>Novo filme</h1>
         </div>
 
+        <div className="form-div">
         <form method="post" className="form" onSubmit={handleSubmit}>
           <div className="data-title">
             <input
@@ -121,7 +106,7 @@ export default function NewFilm() {
             />
           </div>
 
-        <div className="markups">
+        {/* <div className="markups">
           <h3>Marcadores</h3>
         </div>
 
@@ -134,25 +119,15 @@ export default function NewFilm() {
               </p>
             </div>
           ))}
-
-          {/* <div className="newMarkup">
-            <input
-              type="text"
-              placeholder="Novo marcador"
-              value={tagName}
-              onChange={(e) => setTagName(e.target.value)}
-            />
-            <p className="add" onClick={handleTags}>
-              +
-            </p>
-          </div> */}
-        </div>
+          
+        </div> */}
 
         <div className="buttons">
           {/* <button onClick={navigateTo}>Excluir filme</button> */}
           <button type={"submit"}>Salvar alterações</button>
         </div>
         </form>
+        </div>
       </div>
     </>
   );

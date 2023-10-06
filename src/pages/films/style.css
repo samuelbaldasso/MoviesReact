@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
   background: #1c1b1e;
-  min-height: 100vh;
+  height: 100vh;
+}
+
+.filmData{
+  max-height: 40rem;
+  overflow: hidden;
+  overflow: auto;
 }
 
 .texts {
@@ -30,4 +36,10 @@
   padding: 3.2rem;
   height: 4.2rem;
   border-radius: 0.8rem;
+}
+
+.empty-list{
+  text-align: center;
+  color: #fff;
+  font-size: 2.4rem;
 }

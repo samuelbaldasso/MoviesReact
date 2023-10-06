@@ -29,7 +29,7 @@ export default function Settings() {
       };
 
       const response = await axios.put(
-        `http://localhost:3001/user/${id}`,
+        `http://localhost:3001/user/user/${id}`,
         payload
       );
 
@@ -58,7 +58,7 @@ export default function Settings() {
 
     async function getUser() {
       try {
-        const res = await axios.get(`http://localhost:3001/user/${id}`);
+        const res = await axios.get(`http://localhost:3001/user/user/${id}`);
         setUser(res.data);
 
         setName(res.data.name);
@@ -126,7 +126,7 @@ export default function Settings() {
           </label>
         </div>
 
-        <form onSubmit={putUser}>
+        <form onSubmit={putUser} className="form-settings">
           <div className={"name"}>
             <img src={"/Nome.svg"} alt={""} />
             <input

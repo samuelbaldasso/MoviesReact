@@ -6,43 +6,36 @@ import "./style.css";
 function AuthForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [isLogin, setIsLogin] = useState(true);
 
   const history = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const endPoint = isLogin ? "/login" : "/register";
+      const endPoint = "/login";
 
       // Se estiver logando, não precisa enviar o campo "name".
-      const payload = isLogin ? { email, password } : { name, email, password };
+      const payload = { email, password };
 
       // Suponho que você deseja enviar o token apenas quando estiver logando.
-      const config = isLogin
-        ? {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        : {};
+      const config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
 
       const response = await axios.post(
-        `http://localhost:3001${endPoint}`,
+        `http://localhost:3001/auth/${endPoint}`,
         payload,
         config
       );
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
-        alert(isLogin ? "Sucesso no login!" : "Sucesso no cadastro!");
+        alert("Sucesso no login!");
 
-        if(isLogin){
-          history("/film");
-        }
-      } else {
-        alert("Usuário criado com sucesso!");
-      }
+        history("/film");
+      } 
     } catch (error) {
       alert("Erro ao autenticar.");
     }
@@ -56,25 +49,11 @@ function AuthForm() {
           <p>Aplicação para acompanhar tudo que assistir.</p>
         </div>
 
-
-        <form onSubmit={handleSubmit}>
-        <div className="h2">
-          <h2>{isLogin ? "Faça seu login" : "Faça seu cadastro"}</h2>
-        </div>
-          <div>
-            {!isLogin && (
-              <div className={"name"}>
-                <img src={"/Nome.svg"} alt={""} />
-                <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  type="text"
-                  placeholder="Nome"
-                  required
-                />
-              </div>
-            )}
+        <form onSubmit={handleSubmit} className="form-auth">
+          <div className="h2">
+            <h2>Faça seu login</h2>
           </div>
+
           <div className={"email"}>
             <img src={"/E-mail.svg"} alt={""} />
             <input
@@ -97,13 +76,10 @@ function AuthForm() {
             />
           </div>
 
-          <button type="submit">{isLogin ? "Entrar" : "Cadastrar"}</button>
+          <button type="submit">Entrar</button>
         </form>
-        <button
-          className={"submit"}
-          onClick={() => setIsLogin((prev) => !prev)}
-        >
-          {isLogin ? "Ir para Cadastro" : "Ir para Login"}
+        <button className={"submit"} onClick={() => history("/register")} type="submit">
+          Ir para Cadastro
         </button>
       </div>
 
