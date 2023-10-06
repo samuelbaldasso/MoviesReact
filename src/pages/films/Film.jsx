@@ -12,7 +12,6 @@ function Film() {
   }
  
   return(
-    <>
      <div className={"page-film"}>
         <div className="texts">
           <h1>Meus filmes</h1>
@@ -28,7 +27,6 @@ function Film() {
           </div>
         ))}
       </div>
-    </>
   );
 }
 
