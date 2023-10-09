@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <div className={"page-header"}>
       <div className={"text"}>
-        <h2>RocketMovies</h2>
+        <h2 onClick={() => history("/film")}>RocketMovies</h2>
       </div>
 
       <input

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 
 function Film() {
   const history = useNavigate();
-  const { filteredFilms, tag } = useUser();
+  const { filteredFilms } = useUser();
 
   function navigate() {
     history(`/film/new`);
@@ -25,7 +25,7 @@ function Film() {
         {Array.isArray(filteredFilms) && filteredFilms.length > 0 ? (
           filteredFilms.map((e) => (
             <div className="films" key={e.id}>
-              <FilmItem film={e} tags={tag} key={e.id}/>
+              <FilmItem film={e} />
             </div>
           ))
         ) : (

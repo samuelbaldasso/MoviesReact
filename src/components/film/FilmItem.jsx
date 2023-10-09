@@ -2,7 +2,7 @@ import "./style.css";
 import StarRating from "../star/StarRating";
 import { useNavigate } from "react-router";
 
-export default function FilmItem({ film, tags }) {
+export default function FilmItem({ film }) {
   const history = useNavigate();
 
   function navigate(){
@@ -11,9 +11,9 @@ export default function FilmItem({ film, tags }) {
 
   return (
     <div className="page-item" onClick={navigate}>
-      <div className="item" key={film.id}>
+      <div className="item">
         <h2>{film.title}</h2>
-        <StarRating rating={film.nota} key={film.id}/>
+        <StarRating rating={film.nota}/>
         <p>{film.description}</p>
       </div>
 
