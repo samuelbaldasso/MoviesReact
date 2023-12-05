@@ -12,7 +12,7 @@ export default function Settings() {
   const [password, setPassword] = useState("");
   const [actualPassword, setActualPassword] = useState("");
   const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
+  // const [avatar, setAvatar] = useState("");
 
   function navigateTo() {
     history("/film");
@@ -29,7 +29,7 @@ export default function Settings() {
       };
 
       const response = await axios.put(
-        `http://localhost:3001/user/user/${id}`,
+        `https://movies-backend-nodejs-2.onrender.com/user/user/${id}`,
         payload
       );
 
@@ -48,7 +48,7 @@ export default function Settings() {
   useEffect(() => {
     async function getAvatar() {
       try {
-        const res = await axios.get("http://localhost:3001/lastUpload");
+        const res = await axios.get("https://movies-backend-nodejs-2.onrender.com/lastUpload");
         if (res.data.imageUrl) {
           setUser((prevState) => ({ ...prevState, avatar: res.data.imageUrl }));
         }
@@ -59,7 +59,7 @@ export default function Settings() {
   
     async function getUser() {
       try {
-        const res = await axios.get(`http://localhost:3001/user/user/${id}`);
+        const res = await axios.get(`https://movies-backend-nodejs-2.onrender.com/user/user/${id}`);
         setUser(res.data);
         setName(res.data.name);
         setEmail(res.data.email);
@@ -80,7 +80,7 @@ export default function Settings() {
 
       // Assuming your server is set up to accept POST requests at the "/upload" endpoint
       axios
-        .post("http://localhost:3001/upload", formData, {
+        .post("https://movies-backend-nodejs-2.onrender.com/upload", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

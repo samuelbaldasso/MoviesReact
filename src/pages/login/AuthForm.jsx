@@ -26,7 +26,7 @@ function AuthForm() {
       };
 
       const response = await axios.post(
-        `http://localhost:3001/auth/${endPoint}`,
+        `https://movies-backend-nodejs-2.onrender.com/auth/${endPoint}`,
         payload,
         config
       );

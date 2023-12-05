@@ -34,7 +34,7 @@ export default function FilmPage() {
   useEffect(() => {
     async function handleFilms(e) {
       try {
-        const response = await axios.get("http://localhost:3001/film/film");
+        const response = await axios.get("https://movies-backend-nodejs-2.onrender.com/film/film");
         const filteredData = response.data.filter(
           (film) => film.users_id === userId
         );
@@ -58,7 +58,7 @@ export default function FilmPage() {
   useEffect(() => {
     async function getUser() {
       try {
-        const res = await axios.get(`http://localhost:3001/user/user/${userId}`);
+        const res = await axios.get(`https://movies-backend-nodejs-2.onrender.com/user/user/${userId}`);
         setUser(res.data);
       } catch (e) {
         alert("Erro ao obter usuário.");
