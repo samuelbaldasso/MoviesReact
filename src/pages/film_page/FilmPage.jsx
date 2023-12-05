@@ -19,24 +19,28 @@ export default function FilmPage() {
     search,
   } = useUser();
 
-  const token = localStorage.getItem("token");
-  let userId;
-  try {
-    const decodedToken = jwtDecode(token);
-    userId = decodedToken.userId;
-    if (token) {
-      localStorage.setItem("userId", userId);
-    }
-  } catch (err) {
-    console.error("Erro ao decodificar o token.", err);
-  }
 
   useEffect(() => {
+    function createFilter(){
+      const token = localStorage.getItem("token");
+      let userId;
+      try {
+        const decodedToken = jwtDecode(token);
+        userId = decodedToken.userId;
+        if (token) {
+          localStorage.setItem("userId", userId);
+        }
+      } catch (err) {
+        console.error("Erro ao decodificar o token.", err);
+      }
+    }
+
     async function handleFilms(e) {
       try {
         const response = await axios.get("https://movies-backend-nodejs-2.onrender.com/film/film");
+        const localId = localStorage.getItem("userId");
         const filteredData = response.data.filter(
-          (film) => film.users_id === userId
+          (film) => film.users_id === localId
         );
         setFilm(filteredData);
         if (search) {
@@ -53,12 +57,14 @@ export default function FilmPage() {
     }
 
     handleFilms();
-  }, [setUser, setFilm, film, setFilteredFilms, userId, filteredFilms, search]);
+    createFilter();
+  }, [setUser, setFilm, setFilteredFilms, filteredFilms, search]);
 
   useEffect(() => {
     async function getUser() {
       try {
-        const res = await axios.get(`https://movies-backend-nodejs-2.onrender.com/user/user/${userId}`);
+        const localId = localStorage.getItem("userId");
+        const res = await axios.get(`https://movies-backend-nodejs-2.onrender.com/user/user/${localId}`);
         setUser(res.data);
       } catch (e) {
         alert("Erro ao obter usuário.");
@@ -76,7 +82,7 @@ export default function FilmPage() {
 
     // handleTags();
     getUser();
-  }, [user, setUser, userId, setFilm, setTag, setFilteredFilms]);
+  }, [user, setUser, setFilm, setTag, setFilteredFilms]);
 
   return (
     <>
