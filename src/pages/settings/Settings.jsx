@@ -49,18 +49,18 @@ export default function Settings() {
     async function getAvatar() {
       try {
         const res = await axios.get("http://localhost:3001/lastUpload");
-        setAvatar(res.data.imageUrl);
-        setUser((prevState) => ({ ...prevState, avatar: avatar }));
+        if (res.data.imageUrl) {
+          setUser((prevState) => ({ ...prevState, avatar: res.data.imageUrl }));
+        }
       } catch (e) {
         alert("Erro 500 - Servidor. Por favor, tente novamente.");
       }
     }
-
+  
     async function getUser() {
       try {
         const res = await axios.get(`http://localhost:3001/user/user/${id}`);
         setUser(res.data);
-
         setName(res.data.name);
         setEmail(res.data.email);
       } catch (e) {
@@ -69,8 +69,8 @@ export default function Settings() {
     }
     getUser();
     getAvatar();
-  }, [id, setUser, avatar]);
-
+  }, [id, setUser]);
+  
   function handleImageChange(e) {
     const file = e.target.files[0];
 
