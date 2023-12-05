@@ -19,7 +19,7 @@ function RegisterForm() {
       const payload = { name, email, password };
 
       const response = await axios.post(
-        `https://movies-backend-nodejs-2.onrender.com/auth/${endPoint}`,
+        `https://movies-backend-nodejs-2.onrender.com/auth${endPoint}`,
         payload
       );
       if (response.data.token) {
