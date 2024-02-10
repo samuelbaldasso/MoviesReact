@@ -13,21 +13,17 @@ function RegisterForm() {
     e.preventDefault();
 
     try {
-      const endPoint = "/register";
-
       // Se estiver logando, não precisa enviar o campo "name".
       const payload = { name, email, password };
 
       const response = await axios.post(
-        `https://movies-backend-nodejs-2.onrender.com/auth${endPoint}`,
+        `http://localhost:3001/user/user`,
         payload
       );
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        alert("Sucesso no cadastro!");
+      localStorage.setItem("token", response.data.token);
+      alert("Sucesso no cadastro!");
+      history("/");
 
-        history("/film");
-      }
     } catch (error) {
       alert("Erro ao registrar.");
     }

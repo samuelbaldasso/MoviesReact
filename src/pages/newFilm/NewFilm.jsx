@@ -35,7 +35,7 @@ export default function NewFilm() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {  
-      const res = await axios.post(`https://movies-backend-nodejs-2.onrender.com/film/film`, {
+      const res = await axios.post(`http://localhost:3001/film/film`, {
         title,
         nota,
         description,

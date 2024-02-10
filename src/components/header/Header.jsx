@@ -18,7 +18,7 @@ export default function Header() {
   useEffect(() => {
     async function getAvatar() {
       try {
-        const res = await axios.get("https://movies-backend-nodejs-2.onrender.com/lastUpload");
+        const res = await axios.get("http://localhost:3001/lastUpload");
         setAvatar(res.data.imageUrl);
         setUser((prevState) => ({ ...prevState, avatar: res.data.imageUrl }));
       } catch (e) {

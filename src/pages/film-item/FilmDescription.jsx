@@ -22,7 +22,7 @@ export default function FilmDescription() {
   useEffect(() => {
     async function handleFilm() {
       try {
-        const response = await axios.get(`https://movies-backend-nodejs-2.onrender.com/film/film/${id}`);
+        const response = await axios.get(`http://localhost:3001/film/film/${id}`);
         setFilm(response.data);
       } catch (error) {
         alert("Erro ao adicionar filme.");

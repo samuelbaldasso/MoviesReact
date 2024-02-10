@@ -5,17 +5,17 @@ import axios from "axios";
 import { useUser } from "../../UserContext";
 
 export default function Settings() {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams();
   const { user, setUser } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [actualPassword, setActualPassword] = useState("");
   const [name, setName] = useState("");
-  // const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   function navigateTo() {
-    history("/film");
+    navigate("/film");
   }
 
   async function putUser(e) {
@@ -26,10 +26,11 @@ export default function Settings() {
         email,
         actualPassword, // sending both passwords to server
         password,
+        avatar, // Include the avatar URL
       };
 
       const response = await axios.put(
-        `https://movies-backend-nodejs-2.onrender.com/user/user/${id}`,
+        `http://localhost:3001/user/user/${id}`,
         payload
       );
 
@@ -48,21 +49,20 @@ export default function Settings() {
   useEffect(() => {
     async function getAvatar() {
       try {
-        const res = await axios.get("https://movies-backend-nodejs-2.onrender.com/lastUpload");
-        if (res.data.imageUrl) {
-          setUser((prevState) => ({ ...prevState, avatar: res.data.imageUrl }));
-        }
+        const res = await axios.get("http://localhost:3001/lastUpload");
+        setAvatar(res.data.imageUrl);
       } catch (e) {
         alert("Erro 500 - Servidor. Por favor, tente novamente.");
       }
     }
-  
+
     async function getUser() {
       try {
-        const res = await axios.get(`https://movies-backend-nodejs-2.onrender.com/user/user/${id}`);
+        const res = await axios.get(`http://localhost:3001/user/user/${id}`);
         setUser(res.data);
         setName(res.data.name);
         setEmail(res.data.email);
+        setAvatar(res.data.avatar);
       } catch (e) {
         alert("Erro ao obter usuário.");
       }
@@ -70,7 +70,11 @@ export default function Settings() {
     getUser();
     getAvatar();
   }, [id, setUser]);
-  
+
+  useEffect(() => {
+    setUser((prevState) => ({ ...prevState, avatar: avatar }));
+  }, [avatar, setUser]);
+
   function handleImageChange(e) {
     const file = e.target.files[0];
 
@@ -80,7 +84,7 @@ export default function Settings() {
 
       // Assuming your server is set up to accept POST requests at the "/upload" endpoint
       axios
-        .post("https://movies-backend-nodejs-2.onrender.com/upload", formData, {
+        .post("http://localhost:3001/upload", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -89,10 +93,7 @@ export default function Settings() {
           // Handle successful upload
           console.log("File uploaded successfully:", response.data.imageUrl);
           if (response.data && response.data.imageUrl) {
-            setUser((prevState) => ({
-              ...prevState,
-              avatar: response.data.imageUrl,
-            }));
+            setAvatar(response.data.imageUrl);
           }
         })
         .catch((error) => {
