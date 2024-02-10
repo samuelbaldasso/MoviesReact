@@ -12,7 +12,6 @@ export default function Settings() {
   const [password, setPassword] = useState("");
   const [actualPassword, setActualPassword] = useState("");
   const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
 
   function navigateTo() {
     navigate("/film");
@@ -25,8 +24,7 @@ export default function Settings() {
         name,
         email,
         actualPassword, // sending both passwords to server
-        password,
-        avatar, // Include the avatar URL
+        password
       };
 
       const response = await axios.put(
@@ -47,61 +45,18 @@ export default function Settings() {
   }
 
   useEffect(() => {
-    async function getAvatar() {
-      try {
-        const res = await axios.get("http://localhost:3001/lastUpload");
-        setAvatar(res.data.imageUrl);
-      } catch (e) {
-        alert("Erro 500 - Servidor. Por favor, tente novamente.");
-      }
-    }
-
     async function getUser() {
       try {
         const res = await axios.get(`http://localhost:3001/user/user/${id}`);
         setUser(res.data);
         setName(res.data.name);
         setEmail(res.data.email);
-        setAvatar(res.data.avatar);
       } catch (e) {
         alert("Erro ao obter usuário.");
       }
     }
     getUser();
-    getAvatar();
   }, [id, setUser]);
-
-  useEffect(() => {
-    setUser((prevState) => ({ ...prevState, avatar: avatar }));
-  }, [avatar, setUser]);
-
-  function handleImageChange(e) {
-    const file = e.target.files[0];
-
-    if (file) {
-      const formData = new FormData();
-      formData.append("image", file); // 'image' is the field name; adjust it according to your server's expected field name
-
-      // Assuming your server is set up to accept POST requests at the "/upload" endpoint
-      axios
-        .post("http://localhost:3001/upload", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          // Handle successful upload
-          console.log("File uploaded successfully:", response.data.imageUrl);
-          if (response.data && response.data.imageUrl) {
-            setAvatar(response.data.imageUrl);
-          }
-        })
-        .catch((error) => {
-          // Handle upload error
-          console.error("File upload error:", error);
-        });
-    }
-  }
 
   return (
     <div className={"page-settings"}>
@@ -111,21 +66,6 @@ export default function Settings() {
         </a>
         <h3>Voltar</h3>
       </div>
-
-      <div className={"profile"}>
-        <img src={user.avatar ? user.avatar : "/img.png"} alt={""} />
-        <div className={"camera"}>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="hidden-input"
-            id="fileInput"
-          />
-          <label htmlFor="fileInput">
-            <img src={"/Câmera.svg"} alt="Upload Avatar" />
-          </label>
-        </div>
 
         <form onSubmit={putUser} className="form-settings">
           <div className={"name"}>
@@ -172,6 +112,5 @@ export default function Settings() {
           <button type="submit">Salvar</button>
         </form>
       </div>
-    </div>
   );
 }

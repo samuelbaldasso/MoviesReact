@@ -136,3 +136,19 @@ form button {
 .hidden-input {
   display: none;
 }
+
+@media screen and (max-width: 640px) {
+  form input, form button{
+    max-width: 20rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  form button{
+    max-width: 26rem;
+  }
+
+  .back{
+    padding: 0 1rem;
+  }
+}

@@ -6,7 +6,6 @@ import axios from "axios";
 
 export default function Header() {
   const history = useNavigate();
-  const [avatar, setAvatar] = useState();
   const {user, setUser, setSearch} = useUser();
 
   function handleLogout() {
@@ -14,20 +13,6 @@ export default function Header() {
     localStorage.removeItem("userId");
     history("/");
   }
-
-  useEffect(() => {
-    async function getAvatar() {
-      try {
-        const res = await axios.get("http://localhost:3001/lastUpload");
-        setAvatar(res.data.imageUrl);
-        setUser((prevState) => ({ ...prevState, avatar: res.data.imageUrl }));
-      } catch (e) {
-        alert("Erro 500 - Servidor. Por favor, tente novamente.");
-      }
-    }
-
-    getAvatar();
-  }, [setUser]);
   
   return (
     <div className={"page-header"}>
@@ -50,7 +35,6 @@ export default function Header() {
             Sair
           </a>
         </div>
-        <img src={avatar ? avatar : "/img.png"} alt={""} />
       </div>
     </div>
   );

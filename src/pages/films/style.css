@@ -43,3 +43,14 @@
   color: #fff;
   font-size: 2.4rem;
 }
+
+@media screen and (max-width: 640px){
+  .texts{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .filmData{
+    background: transparent;
+  }
+}

@@ -57,11 +57,37 @@
 
 .text-desc {
   color: #f4ede8;
-  text-align: justify;
+  text-align: center;
   font-family: Roboto Slab;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   margin-top: 5rem; 
   line-height: normal;
+}
+
+@media screen and (max-width: 640px){
+  .data{
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .image{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .hour{
+    margin: 0;
+  }
+
+  .page-description{
+    padding: 2rem;
+  }
+
+  .text-desc p{
+    max-width: 100%;
+  }
 }

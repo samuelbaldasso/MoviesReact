@@ -64,17 +64,6 @@ export default function FilmPage() {
         alert("Erro ao obter usuário.");
       }
     }
-
-    // async function handleTags() {
-    //   try {
-    //     const response = await axios.get("http://localhost:3001/tag/tag");
-    //     setTag(response.data);
-    //   } catch (error) {
-    //     alert("Erro ao adicionar tag.");
-    //   }
-    // }
-
-    // handleTags();
     getUser();
   }, [user, setUser, userId, setFilm, setTag, setFilteredFilms]);
 

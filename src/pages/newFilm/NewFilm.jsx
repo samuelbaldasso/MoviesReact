@@ -19,19 +19,6 @@ export default function NewFilm() {
     history("/film");
   }
 
-  // useEffect(() => {
-  //   async function getAllTags() {
-  //     try {
-  //       const res = await axios.get(`http://localhost:3001/tag/tag`);
-  //       setTag(res.data);
-  //     } catch (e) {
-  //       alert("Erro ao buscar tags.");
-  //     }
-  //   }
-
-  //   getAllTags();
-  // }, [setTag]);
-
   async function handleSubmit(e) {
     e.preventDefault();
     try {  
@@ -47,15 +34,6 @@ export default function NewFilm() {
       alert("Erro ao adicionar filme.");
     }
   }
-
-  // async function deleteTag(tagId) {
-  //   try {
-  //     await axios.delete(`http://localhost:3001/tag/tag/${tagId}`);
-  //     setTag(prev => prev.filter(t => t.id !== tagId));
-  //   } catch (e) {
-  //     alert("Erro ao deletar tag.");
-  //   }
-  // }
 
   return (
     <>
@@ -106,24 +84,7 @@ export default function NewFilm() {
             />
           </div>
 
-        {/* <div className="markups">
-          <h3>Marcadores</h3>
-        </div>
-
-        <div className="markup-group">
-          {tag.map((t) => (
-            <div className="markup" key={t.id}>
-              <span key={t.id}>{t.name}</span>
-              <p className="close" onClick={() => deleteTag(t.id)}>
-                X
-              </p>
-            </div>
-          ))}
-          
-        </div> */}
-
         <div className="buttons">
-          {/* <button onClick={navigateTo}>Excluir filme</button> */}
           <button type={"submit"}>Salvar alterações</button>
         </div>
         </form>

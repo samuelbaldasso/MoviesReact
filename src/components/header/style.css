@@ -1,45 +1,65 @@
-.page-header img{
-    width: 6.4rem;
-    height: 6.4rem;
-    border-radius: 9999.99rem;
+.page-header img {
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 9999.99rem;
 }
 
-.page-header, .text, .links{
-    display: flex;
-    color: #ffffff;
-    cursor: pointer;
+.page-header,
+.text,
+.links {
+  display: flex;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-.page-header{
-    justify-content: space-evenly;
-    padding: 2.4rem 12.3rem;
-    align-items: center;
-    background: #1C1B1E;
+.page-header {
+  justify-content: space-evenly;
+  padding: 2.4rem 12.3rem;
+  align-items: center;
+  background: #1c1b1e;
 
-    gap: 6.4rem;
+  gap: 6.4rem;
 }
 
-.text h2{
-    color: pink;
+.text h2 {
+  color: pink;
 }
 
-input{
-    display: flex;
-    padding: 1.9rem 2.4rem;
-    align-items: flex-start;
-    flex: 1 0 0;
-    border-radius: 1rem;
-    background: #262529;
-    border: none;
-    color: #fff;
+input {
+  display: flex;
+  padding: 1.9rem 2.4rem;
+  align-items: flex-start;
+  flex: 1 0 0;
+  border-radius: 1rem;
+  background: #262529;
+  border: none;
+  color: #fff;
 }
 
-a{
-    text-decoration: none;
-    color: white;
+a {
+  text-decoration: none;
+  color: white;
 }
 
-.links{
-    gap: 2rem;
-    justify-content: flex-end;
+.links {
+  gap: 2rem;
+  justify-content: flex-end;
+}
+.links h3 {
+  margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 640px) {
+  .page-header {
+    flex-direction: column;
+    font-size: 1.5rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .links {
+    text-align: center;
+  }
 }

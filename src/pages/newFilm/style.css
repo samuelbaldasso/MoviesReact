@@ -17,12 +17,6 @@
   background: #1c1b1e;
 }
 
-/* .form-div {
-  max-height: 40rem;
-  overflow: hidden;
-  overflow: auto;
-} */
-
 .data-title {
   display: flex;
   gap: 4rem;
@@ -151,4 +145,41 @@ textarea {
 
 .description h3 {
   font-family: "Roboto Slab", sans-serif;
+}
+
+@media screen and (max-width: 640px) {
+  .data-title input {
+    max-width: 30rem;
+  }
+
+  .buttons button {
+    width: 34.8rem; 
+  }
+
+  .data-title {
+    flex-direction: column;
+  }
+
+  .page-new {
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0;
+  }
+
+  .description{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .data-title input {
+    max-width: 21rem;
+  }
+}
+
+@media screen and (max-width: 325px) {
+.texts-new h1 {
+  font-size: 2.4rem;
+}
 }

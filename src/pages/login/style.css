@@ -1,114 +1,157 @@
 .page {
-    display: flex;
-    background-color: #1C1B1E;
-    justify-content: space-between;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
+  display: flex;
+  background-color: #1c1b1e;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
 }
 
-.img img{
-    width: 80rem;
-    height: 100vh;
-    flex-shrink: 0;
+.img img {
+  width: 80rem;
+  height: 100vh;
+  flex-shrink: 0;
 }
 
-.rocket{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: pink;
+.rocket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: pink;
 }
 
-.rocket h1{
-    font-size: 4.8rem;
-    margin: 0;
-    color: pink;
+.rocket .flex-start h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: pink;
 }
 
-.flex-start{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 5rem 15rem;
-    color: #fff;
+.flex-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
 }
 
-.flex-start p{
-    font-size: 1.4rem;
+.flex-start p {
+  font-size: 1.4rem;
 }
 
-.h2 h2{
-    font-size: 2.8rem;
-    color: #fff;
-    text-align: left;
+.form-auth .h2 h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-align: center;
 }
 
 .h2 {
   display: flex;
   justify-content: flex-start;
   text-align: left;
-  width: 32rem;
   margin-bottom: 1rem;
 }
 
-.email, .senha,.name{
-    position: relative;
+.email,
+.senha,
+.name {
+  position: relative;
 }
 
-.email input, .senha input, .name input{
-    padding: 0 3rem;
+.email input,
+.senha input,
+.name input {
+  padding: 0 3rem;
 }
 
-.email img, .senha img, .name img{
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 1.8rem;
+.email img,
+.senha img,
+.name img {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 1.8rem;
 }
 
-form input, form button{
-    width: 30rem;
-    height: 5.6rem;
-    flex-shrink: 0;
-    border-radius: 0.8rem;
-    border: none;
-    margin: 0.5rem 0;
+.form-auth input,
+.form-auth button {
+  width: 30rem;
+  height: 5.6rem;
+  flex-shrink: 0;
+  border-radius: 0.8rem;
+  border: none;
+  margin: 0.5rem 0;
 }
 
-form button{
-    width: 36rem;
-    margin-left: 1.2rem;
-    background: pink;
-    color: #fff;
+.form-auth button {
+  width: 36rem;
+  margin-left: 1.2rem;
+  background: pink;
+  color: #fff;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
+.form-auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name img,
+.email img,
+.senha img {
+  margin-left: 0.8rem;
+}
+
+.form-auth input[placeholder] {
+  margin-left: 1.2rem;
+  color: white;
+}
+
+.submit {
+  width: 36rem;
+  margin-left: 1.2rem;
+  background: transparent;
+  color: pink;
+  border: none;
+  margin-top: 4.2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .img {
+    display: none;
+  }
+
+  .rocket,
+  .form-auth,
+  .h2 {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .form-auth {
     align-items: center;
     justify-content: center;
+  }
+
+  .rocket, .form-auth {
+    align-items: center;
+    margin: 2px 0;
+  }
+
+  h2{
+    margin: 0 0 0 16px;
+  }
+
+  input, button{
+    margin: 0;
+  }
 }
-
-.name img, .email img, .senha img {
-    margin-left: 0.8rem;
-}
-
-.form-auth input[placeholder]{
-    margin-left: 1.2rem;
-    color: white;
-}
-
-.submit{
-    width: 36rem;
-    margin-left: 1.2rem;
-    background: transparent;
-    color: pink;
-    border: none;
-    margin-top: 4.2rem;
-}
-
-

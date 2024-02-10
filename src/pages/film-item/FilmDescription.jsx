@@ -49,22 +49,13 @@ export default function FilmDescription() {
         </div>
 
         <div className="image">
-          <img src={user.avatar} alt={""} />
           <p>Por {user.name}</p>
           <div className="hour">
             <img src="/hour.svg" alt="" />
             <p>{dateFormat(film.created_at)[0]} às {dateFormat(film.created_at)[1]}</p>
           </div>
         </div>
-
-        {/* <div className="tag-container">
-          {tag.map((tag) => (
-            <div className="tags" key={tag.id}>
-              <span>{tag.name}</span>
-            </div>
-          ))}
-        </div> */}
-
+        
         <div className="text-desc" key={film.id}>
           <p>{film.description}</p>
         </div>

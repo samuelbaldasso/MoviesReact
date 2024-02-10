@@ -16,14 +16,6 @@ export default function FilmItem({ film }) {
         <StarRating rating={film.nota}/>
         <p>{film.description}</p>
       </div>
-
-      {/* <div className="tag-container">
-        {tags.map((tag) => (
-          <div className="tags" key={tag.id}>
-            <span>{tag.name}</span>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }
