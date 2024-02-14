@@ -45,6 +45,7 @@ a {
   gap: 2rem;
   justify-content: flex-end;
 }
+
 .links h3 {
   margin: 0.5rem 0;
 }
@@ -61,5 +62,9 @@ a {
 
   .links {
     text-align: center;
+  }
+
+  .text h2 {
+    margin: 0;
   }
 }

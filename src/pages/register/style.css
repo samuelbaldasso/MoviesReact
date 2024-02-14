@@ -89,7 +89,6 @@ form button {
 
 form button {
   width: 36rem;
-  margin-left: 1.2rem;
   background: pink;
   color: #fff;
 }
@@ -108,13 +107,12 @@ form {
 }
 
 .form-register input[placeholder] {
-  margin-left: 1.2rem;
+  margin: 1.2rem;
   color: white;
 }
 
 .submit {
   width: 36rem;
-  margin-left: 1.2rem;
   background: transparent;
   color: pink;
   border: none;
@@ -122,36 +120,14 @@ form {
 }
 
 @media screen and (max-width: 1200px) {
-  .rocket,
-  .form-register,
-  .h2 {
+  .form-register {
     margin: 0 auto;
     max-width: 300px;
   }
 
-  h2 {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 375px) {
   .form-register {
     align-items: center;
     justify-content: center;
-  }
-
-  .rocket,
-  .form-register {
-    align-items: center;
     margin: 2px 0;
-  }
-
-  h2 {
-    margin: 0 0 0 16px;
-  }
-
-  input,
-  button {
-    margin: 0;
   }
 }

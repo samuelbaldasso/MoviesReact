@@ -49,6 +49,10 @@
     padding: 0.4rem;
   }
 
+  .item h2{
+    margin: 0;
+  }
+
   .page-item{
     background: transparent;
     margin: 1.4rem;

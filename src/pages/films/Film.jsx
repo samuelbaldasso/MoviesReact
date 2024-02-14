@@ -25,7 +25,7 @@ function Film() {
         {Array.isArray(filteredFilms) && filteredFilms.length > 0 ? (
           filteredFilms.map((e) => (
             <div className="films" key={e.id}>
-              <FilmItem film={e} />
+              <FilmItem film={e} key={e.id}/>
             </div>
           ))
         ) : (

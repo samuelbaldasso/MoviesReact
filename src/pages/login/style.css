@@ -87,7 +87,6 @@
 
 .form-auth button {
   width: 36rem;
-  margin-left: 1.2rem;
   background: pink;
   color: #fff;
 }
@@ -102,17 +101,15 @@
 .name img,
 .email img,
 .senha img {
-  margin-left: 0.8rem;
 }
 
 .form-auth input[placeholder] {
-  margin-left: 1.2rem;
+  margin: 1.2rem;
   color: white;
 }
 
 .submit {
   width: 36rem;
-  margin-left: 1.2rem;
   background: transparent;
   color: pink;
   border: none;
@@ -126,32 +123,30 @@
 
   .rocket,
   .form-auth,
-  .h2 {
+  .h2 h2 {
     margin: 0 auto;
-    max-width: 300px;
+    width: 100%;
   }
 
-  h2 {
+  .h2 h2 {
     font-size: 1rem;
+    margin: 0;
+    text-align: center;
   }
-}
 
-@media screen and (max-width: 375px) {
+  .rocket,
   .form-auth {
     align-items: center;
     justify-content: center;
-  }
-
-  .rocket, .form-auth {
-    align-items: center;
     margin: 2px 0;
   }
 
-  h2{
+  h2 {
     margin: 0 0 0 16px;
   }
 
-  input, button{
-    margin: 0;
+  .form-auth input,
+  .submit button {
+    margin: 0 auto;
   }
 }
