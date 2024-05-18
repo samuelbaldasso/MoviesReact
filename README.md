@@ -17,7 +17,6 @@ RocketMovies é uma aplicação web desenvolvida em ReactJS para o frontend. A a
 
 - **ReactJS**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **Axios**: Cliente HTTP para realizar requisições ao backend.
-- **React Router**: Para navegação entre páginas.
 
 ## Como Rodar o Projeto
 
