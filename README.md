@@ -29,8 +29,8 @@ RocketMovies é uma aplicação web desenvolvida em ReactJS para o frontend. A a
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/samuelbaldasso/Movies-JavaScript-ReactJS-ContextAPI.git
-    cd Movies-JavaScript-ReactJS-ContextAPI
+    git clone https://github.com/samuelbaldasso/MoviesReact.git
+    cd MoviesReact
     ```
 
 2. Inicie o servidor frontend:
